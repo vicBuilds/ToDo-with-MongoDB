@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO APP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/24c5cbd3ec.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+
+<body>
+    <!-- Container Containing the Tasks -->
+<div class="main-container">
+    
+        <div class="header-container"><h1>TODO <span class="heading">APP</span></h1></div>
+            
+           <form action="/submit" class="" method="post">
+                <label for="description" >Description of Work</label> 
+                <input type="text" class="form-control" name="description" placeholder="Please Enter Some Task" id="description" required>
+                
+            
+            <label for="date" class="deadline">Enter the Deadline</label>    
+            <input type="date" name="date" id="date">
+            
+
+           
+            <label for="category">Category of Work</label>    
+            <select id="category" name="category">
+                <option value="Work">Work</option>
+                <option value="Studies">Studies</option>
+                <option value="Groceries">Groceries</option>
+                <option value="Personal">Personal</option>
+                <option value="Travel">Travel</option>
+            </select>
+        
+            <!-- <input class="btn btn-primary" type="submit" value="Add Task"> -->
+            <button type="submit"><i class="fa-solid fa-plus"></i> ADD TASK</button>
+        </form>        
+    
+    </div>    
+    <!-- End of Container -->
+
+    <!-- TODO LIST -->
+        <div id="list-container">
+        <ul class="list-group">
+            <%for(let i of List){%>
+                <li aria-checked="true">
+                    <p><input type="checkbox" id="task1" data-id="12" class="custom-checkbox">
+                    <label for="task1"><%=  i.description%></label><br><br>
+                    <!-- <span><%=  i.description%></span> -->
+                    <!-- <span><i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp;&nbsp;<%=  i.date%></span>
+                    <span></span><%=  i.category%></span>
+                    <span><a href="/delete-task/<%= i.id%>"><i class="fa-solid fa-trash-can"></i></a></span> -->
+                    <span class="Date"><i class="fa-solid fa-calendar-days"></i>&nbsp;&nbsp;&nbsp;<%=  i.date%></span></p>
+                    <span class="Category"><%=  i.category%></span>
+                    <a href="/delete-task/<%= i.id%>"><i class="fa-solid fa-trash-can"></i></a>
+                </li>
+                <%}%>
+
+          </ul>
+        </div>
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<script src="app.js"></script>
+</body>
+</body>
+</html>
